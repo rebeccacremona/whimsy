@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>About | An Act of Whimsy</title>
+    <link rel="stylesheet" type="text/css" href="/assets/Skeleton-2.0.4/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/assets/Skeleton-2.0.4/css/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="/assets/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+  </head>
+  <body class="dark">
+    <header>
+      <span class="logo"><a href="/">An Act of Whimsy</a></span>
+      <nav>
+        <a href="/wiki">Wiki</a>
+      </nav>
+    </header>
+    <div id="content">
+      <section>
+        <p>Let's play <span class="highlight">pretend</span>.</p>
+        <p>This is the encyclopedia for our make-believe world.</p>
+        <p>Fill it with <span class="highlight">anything you can dream up</span>: plants, people, places, events...</p>
+      </section>
+      <section>
+        <p><a href="https://www.mediawiki.org/wiki/Help:Editing_pages">Embellish</a> articles that others have started.</p>
+        <p><span class="highlight">Dream new pages into being</span> by <a href="https://www.mediawiki.org/wiki/Help:VisualEditor/User_guide#Editing_links">linking</a> to them <a href="assets/new_page.png">as though they were already there</a>!</p>
+      </section>
+      <section>
+        <p><span class="highlight">Don't delete anybody else's fun</span></p>
+        <p>(but polishing prose is totally fine).</p>
+        <button id="play">Oh, yes, let's!</button>
+      </section>
+    </div>
+    <div id="candles">
+      <p id="candle-landing" tabindex="-1" class="sr-only">a lit candle</p>
+      <div class="candle-wrapper">
+        <div class="candle"></div>
+        <div class="wick"></div>
+        <div class="fire"></div>
+        <div class="light"></div>
+      </div>
+    </div>
+    <div id="book">
+      <span class="page turn"></span>
+      <span class="page turn"></span>
+      <span class="page turn"></span>
+      <span class="page turn"></span>
+      <span class="page turn"></span>
+      <span class="page turn"></span>
+      <span class="cover"></span>
+      <span class="page"></span>
+      <span class="cover turn"></span>
+    </div>
+    <script>
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      document.getElementById('play').addEventListener('click', async function(e){
+          document.getElementById('content').style.display = 'none';
+          document.getElementById('candles').classList.add('visible');
+          document.getElementById('candle-landing').focus();
+          await sleep(2000);
+          document.getElementById('book').style.display = 'block';
+          await sleep(5000);
+          window.location = '/wiki/';
+      })
+    </script>
+  </body>
+</html>
